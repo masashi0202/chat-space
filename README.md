@@ -26,8 +26,8 @@
 |user_id|integer|null: false, foreign_key: true|
 |chatgroup_id|integer|null: false, foreign_key: true|
 ### Association
-belongs_to :user
-belongs_to :chatgroup
+- belongs_to :user
+- belongs_to :chatgroup
 
 ## postsテーブル
 |Column|Type|Options|
@@ -37,5 +37,5 @@ belongs_to :chatgroup
 |user_id|integer|null: false, foreign_key: true|
 |chatgroup_id|integer|null: false, foreign_key: true|
 ### Association
-belongs_to :user
-belongs_to :chatgroup
+- belongs_to :user
+- belongs_to :chatgroup
