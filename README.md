@@ -25,8 +25,8 @@
 |user_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
 ### Association
-belongs_to :user
-belongs_to :group
+- belongs_to :user
+- belongs_to :group
 
 ## postsテーブル
 |Column|Type|Options|
@@ -36,7 +36,7 @@ belongs_to :group
 |user_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
 ### Association
-belongs_to :user
-belongs_to :group
-validates :text,presence: true, unless: 'image.present?'
-validates :image,presence: true, unless: 'text.present?'
+- belongs_to :user
+- belongs_to :group
+- validates :text,presence: true, unless: 'image.present?'
+- validates :image,presence: true, unless: 'text.present?'
