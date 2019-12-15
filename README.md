@@ -2,40 +2,41 @@
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|username|string|null: false|
+|name|string|null: false|
 |email|string|null: false|
 |password|string|null: false|
 ### Association
 - has_many :posts
-- has_many :users_chatgroups
-- has_many :chatgroups, through:  :users_chatgroups
+- has_many :user_groups
+- has_many :groups, through:  :user_groups
 
-## chatgroupsテーブル
+## groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|groupname|string|null: false|
-|member|string||
+|name|string|null: false|
 ### Association
 - has_many :posts
-- has_many :users_chatgroups
-- has_many :users, through:  :users_chatgroups
+- has_many :user_groups
+- has_many :users, through:  :user_groups
 
-## users_chatgroupsテーブル
+## user_groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|integer|null: false, foreign_key: true|
-|chatgroup_id|integer|null: false, foreign_key: true|
+|group_id|integer|null: false, foreign_key: true|
 ### Association
 belongs_to :user
-belongs_to :chatgroup
+belongs_to :group
 
 ## postsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|text|string|null: false|
+|text|string||
 |image|string||
 |user_id|integer|null: false, foreign_key: true|
-|chatgroup_id|integer|null: false, foreign_key: true|
+|group_id|integer|null: false, foreign_key: true|
 ### Association
 belongs_to :user
-belongs_to :chatgroup
+belongs_to :group
+validates :text,presence: true, unless: 'image.present?'
+validates :image,presence: true, unless: 'text.present?'
