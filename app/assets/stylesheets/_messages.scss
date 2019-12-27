@@ -46,8 +46,8 @@
     &__groups{
       background-color: #2f3251;
       height: 100%;
-      display: flex; /* 子要素をflexboxで揃える */
-      flex-direction: column; /* 子要素をflexboxにより縦方向に揃える */
+      display: flex;
+      flex-direction: column;
       align-items: center;
       &__group{
         height:auto;
@@ -97,7 +97,6 @@
         border: 1px solid #38aef0;
         line-height: 36px;
         text-align: center;
-        // なぜpaddingでは移動できなかったのか？
         margin: 28px 40px 0 0;
         &__btn{
           display: block;
