@@ -1,0 +1,26 @@
+.sidebar
+  .sidebar__user
+    .sidebar__user__icons
+      .sidebar__user__icons__left
+        masa
+      .sidebar__user__icons__right
+        =link_to "#", class: "sidebar__user__icons__right__btn" do
+          = icon('fas', 'edit', class: "user__btn--group")
+        =link_to "#", class: "sidebar__user__icons__right__btn" do
+          = icon('fas', 'cog', class: "user__btn--account")
+  .sidebar__groups
+    .sidebar__groups__group
+      .sidebar__groups__group__name
+        masashi
+      .sidebar__groups__group__message
+        おはよう
+    .sidebar__groups__group
+      .sidebar__groups__group__name
+        masashi2
+      .sidebar__groups__group__message
+        こんにちは
+    .sidebar__groups__group
+      .sidebar__groups__group__name
+        masashi3
+      .sidebar__groups__group__message
+        こんばんは
