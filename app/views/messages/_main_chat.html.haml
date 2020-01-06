@@ -2,34 +2,21 @@
   .main__group
     .main__group__left
       .main__group__left__name
-        グループ名
+        = @group.name
       .main__group__left__members
-        member：
+        Member：
+        - @group.users.each do |user|
+          = user.name
     .main__group__edit
-      =link_to "#", class: "main__group__edit__btn" do
+      =link_to edit_group_path(@group), class: "main__group__edit__btn" do
         Edit
   .main__comments
-    .main__comments__list
-      .main__comments__list__top
-        .main__comments__list__top__name
-          masa
-        .main__comments__list__top__date
-          2019/12/24
-      .main__comments__list__comment
-        hello
-    .main__comments__list
-      .main__comments__list__top
-        .main__comments__list__top__name
-          masa
-        .main__comments__list__top__date
-          2019/12/24
-      .main__comments__list__comment
-        goodbye
+    = render @messages
   .main__postmenu
-    .main__postmenu__group
+    = form_for [@group, @message], html: { class: "main__postmenu__group" } do |f|
       .main__postmenu__group__text
-        = text_field :text,'', class: 'main__postmenu__group__text__form', placeholder: 'type a message'
-        %label.main__postmenu__group__text__image
-          = icon('far', 'image', class: "main__postmenu__group__text__image__btn")
-          = file_field :image,'', class: "main__postmenu__group__text__image__file"
-      = submit_tag 'Send', class: 'main__postmenu__group__btn'
+        = f.text_field :content, class: 'main__postmenu__group__text__form', placeholder: 'type a message'
+        = f.label :image, class: 'main__postmenu__group__text__image' do
+          = icon('fas', 'image', class: 'main__postmenu__group__text__image__btn')
+          = f.file_field :image, class: 'main__postmenu__group__text__image__file'
+      = f.submit 'Send', class: 'main__postmenu__group__btn'
