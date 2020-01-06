@@ -28,7 +28,7 @@
 - belongs_to :user
 - belongs_to :group
 
-## commentsテーブル
+## messagesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |comment|string||
