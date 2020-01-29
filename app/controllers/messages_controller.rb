@@ -12,8 +12,9 @@ class MessagesController < ApplicationController
     @message = @group.messages.new(message_params)
     # 投稿が成功した場合の条件分岐
     if @message.save
-      redirect_to group_messages_path(@group), notice: 'メッセージが送信されました'
-    # 投稿が失敗した場合の条件分岐
+      respond_to do |format|
+        format.json
+      end
     else
       # groupインスタンスの持つidと同じ値のgroup_idを持つmessageテーブルのレコードの一覧を格納したインスタンスを作成。ユーザ情報も格納するためincludeを使用している
       @messages = @group.messages.includes(:user)
