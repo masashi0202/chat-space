@@ -56,13 +56,14 @@ $(function(){
     })
     .done(function(data){
       var html = buildHTML(data);
-      $('.main__comments').append(html).animate({ scrollTop: $('.main__comments')[0].scrollHeight});;
+      $('.main__comments').append(html).animate({ scrollTop: $('.main__comments')[0].scrollHeight});
       $('form')[0].reset();
-      $('.main__postmenu__group__btn').prop('disabled', false);
     })
     .fail(function() {
       alert("メッセージ送信に失敗しました");
+    })
+    .always(function() {
       $('.main__postmenu__group__btn').prop('disabled', false);
-    });
+    })
   });
 });
